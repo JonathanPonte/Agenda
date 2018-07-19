@@ -13,7 +13,7 @@ object AuthNetwork {
 
     private fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
-                .baseUrl("https://api.github.com/")
+                .baseUrl("https://api-agenda-unifor.herokuapp.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
@@ -32,17 +32,18 @@ object AuthNetwork {
         authAPI.cadastrarUsuario(user)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ user ->
+                .subscribe({
                     //se tudo deu certo
-                    user?.let {
 
-                        Log.d("tag", "Deu certooooooooooOOOOOO, ${user.email}")
+                    it.data?.let {
+
+                        Log.d("tag", "Deu certooooooooooOOOOOO, ${it.email}")
                         onSuccess(it)
 
                     }
 
                 },{
-                    Log.d("tag", "Deu ruim, ${user.email}")
+                    Log.d("tag", "Deu ruim, ${it.message}")
                     onError()
                 })
 

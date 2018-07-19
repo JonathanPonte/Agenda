@@ -1,14 +1,17 @@
 package com.example.jonat.agenda.auth.module
 
 import com.google.gson.annotations.SerializedName
+import io.realm.RealmObject
 
-open class User{
+open class User: RealmObject(){
+
+    var id : Int? = null
 
     var email : String? = ""
 
     var password : String? = ""
 
-    @SerializedName("password_Confirmation")
+    @SerializedName("password_confirmation")
     var passwordConfirmation : String? = ""
 
 
@@ -17,7 +20,6 @@ open class User{
 
     var client : String? = ""
 
-    @SerializedName("acess-token")
     var acessToken : String? = ""
 
 }

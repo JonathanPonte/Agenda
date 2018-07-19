@@ -8,8 +8,10 @@ import retrofit2.http.Path
 
 interface AuthAPI {
 
-     @POST("/auth}")
-     fun cadastrarUsuario(@Body usuario : User): Observable<User>
+     @POST("/auth")
+     fun cadastrarUsuario(@Body usuario : User): Observable<ApiResponse>
+
+
 
 
 
