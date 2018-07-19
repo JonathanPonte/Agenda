@@ -44,4 +44,12 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
+
+    private fun configurarBotaoLogin(){
+
+
+
+    }
+
+
 }
